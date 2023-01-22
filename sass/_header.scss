@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.header-link {
+    margin-right: 20px;
+}
+.header-logo {
+    display: block;
+    margin-right: 0;
+    height: 50px;
+}
+
+.header-menu {
+    @extend %flex-row;
+    justify-content: flex-end;
+    .menu-item:not(:last-child) {
+        margin-right: 20px;
+    }
+}
