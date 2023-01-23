@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.header-menu, .btn--list .btn {
+.btn--list .btn {
   display: flex;
   align-items: center;
 }
@@ -272,7 +272,7 @@ summary {
 /* ЗАГАЛЬНІ СТИЛІ */
 html,
 body {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Spectral", serif;
   box-sizing: border-box;
   margin: 0;
   font-size: 16px;
@@ -280,7 +280,7 @@ body {
   line-height: 22px;
   font-weight: 400;
   color: #2f2f2f;
-  background: #ffffff;
+  background: #ede8e5;
 }
 @media screen and (min-width: 1280px) {
   html,
@@ -343,7 +343,7 @@ h6 {
   font-size: 26px;
   text-transform: uppercase;
   text-align: center;
-  color: #3a755f;
+  color: #008338;
 }
 
 .coloured {
@@ -386,13 +386,13 @@ h6 {
   padding: 0;
   border: none;
   border-radius: 50%;
-  color: #ffffff;
+  color: #ede8e5;
   transition: color cubic-bezier(0.4, 0, 0.2, 1) 250ms, box-shadow cubic-bezier(0.4, 0, 0.2, 1) 250ms, background-color cubic-bezier(0.4, 0, 0.2, 1) 250ms;
-  background: #3a755f;
+  background: #008338;
 }
 .btn--list .btn:hover, .btn--list .btn:focus {
   color: #2f2f2f;
-  background-color: #015259;
+  background-color: #005123;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
 }
 .btn--list .btn .btn--list__icon {
@@ -426,7 +426,7 @@ h6 {
   }
 }
 .contacts-list .contacts-item .contacts-link:hover, .contacts-list .contacts-item .contacts-link:focus {
-  color: #015259;
+  color: #005123;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
 }
 .contacts-list .contacts-item .contacts-link .contacts-icon {
@@ -435,27 +435,144 @@ h6 {
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  max-width: 1400px;
+  min-width: 320px;
+  margin: 0 auto;
 }
 
-.header-link {
-  margin-right: 20px;
+.header-body {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 20px;
 }
 
-.header-logo {
+.header-thumb {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-thumb .header-logo {
   display: block;
-  margin-right: 0;
-  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+.header-thumb .header-logo img {
+  max-width: 100%;
+}
+.header-thumb .header-name {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #008338;
+}
+
+.header-burger {
+  position: relative;
+  z-index: 5;
+  width: 40px;
+  height: 30px;
+}
+.header-burger span {
+  position: absolute;
+  background-color: #008338;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  top: 14px;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
+.header-burger::before,
+.header-burger::after {
+  content: "";
+  position: absolute;
+  background-color: #008338;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
+.header-burger::before {
+  top: 0;
+}
+
+.header-burger::after {
+  bottom: 0;
+}
+
+.header-burger.active span {
+  transform: scale(0);
+}
+
+.header-burger.active:before {
+  transform: rotate(45deg);
+  top: 13px;
+  background-color: #ede8e5;
+}
+
+.header-burger.active:after {
+  transform: rotate(-45deg);
+  bottom: 14px;
+  background-color: #ede8e5;
 }
 
 .header-menu {
-  justify-content: flex-end;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 80px 0;
+  overflow: auto;
+  background-color: #008338;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
-.header-menu .menu-item:not(:last-child) {
-  margin-right: 20px;
+.header-menu .header-list {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.header-menu .header-list .header-item {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+.header-menu .header-list .header-item .header-link {
+  font-size: 20px;
+  line-height: 24px;
+  white-space: nowrap;
+  color: #ede8e5;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+.header-menu .header-list .header-item .header-link:hover, .header-menu .header-list .header-item .header-link:focus {
+  color: #005123;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.header-menu.active {
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  padding: 90px 0;
+}
+@media screen and (min-width: 768px) {
+  .header-menu.active {
+    padding: 100px 0;
+  }
 }
 
 .hero {
