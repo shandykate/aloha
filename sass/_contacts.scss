@@ -1,0 +1,10 @@
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    .tel-link {
+        color: $primary-text-color;
+    }
+}

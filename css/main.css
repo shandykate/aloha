@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.btn--list .btn {
+  display: flex;
+  align-items: center;
+}
+
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document
@@ -267,7 +272,7 @@ summary {
 /* ЗАГАЛЬНІ СТИЛІ */
 html,
 body {
-  font-family: "Spectral", serif;
+  font-family: "Comfortaa", cursive;
   box-sizing: border-box;
   margin: 0;
   font-size: 18px;
@@ -334,24 +339,53 @@ h6 {
   text-align: center;
 }
 
-.btn-list {
+.shop-list {
   display: flex;
-  flex-direction: column;
   gap: 20px;
 }
-.btn-list .btn-list-item {
-  display: block;
-  width: 100%;
+.shop-list .shop-list-item {
+  flex-basis: calc((100% - 20px) / 4);
   border: 1px solid #008338;
   border-radius: 10px;
 }
-.btn-list .btn-list-item .btn-primary {
+.shop-list .shop-item-name {
   display: block;
+  height: 88px;
   text-align: center;
-  padding: 12px;
+}
+.shop-list .shop-item-img {
+  display: block;
+  width: 100%;
+}
+
+.btn--list {
+  display: flex;
+  justify-content: center;
+}
+.btn--list .btn--list__item:not(:last-child) {
+  margin-right: 20px;
+}
+.btn--list .btn {
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  color: #ede8e5;
+  transition: color cubic-bezier(0.4, 0, 0.2, 1) 250ms, box-shadow cubic-bezier(0.4, 0, 0.2, 1) 250ms, background-color cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+  background: #008338;
+}
+.btn--list .btn:hover, .btn--list .btn:focus {
   color: #2f2f2f;
-  font-weight: 600;
-  text-transform: uppercase;
+  background-color: #005123;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.btn--list .btn .btn--list__icon {
+  width: 30px;
+  height: 100%;
+  fill: currentColor;
 }
 
 .header {
@@ -494,8 +528,13 @@ h6 {
   background-position: center;
 }
 
-.contact-link {
-  display: block;
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+}
+.contacts .tel-link {
   color: #2f2f2f;
 }/*# sourceMappingURL=main.css.map */
